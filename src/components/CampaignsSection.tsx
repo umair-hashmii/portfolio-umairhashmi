@@ -413,7 +413,7 @@ export const CampaignsSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Other Campaigns Images */}
+        {/* Other Campaigns Images - Aesthetic Stacked Layout */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -421,13 +421,61 @@ export const CampaignsSection: React.FC = () => {
           viewport={{ once: true }}
           className="mb-12 sm:mb-16 md:mb-20"
         >
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dev-text-primary-light dark:text-dev-text-primary-dark mb-6 sm:mb-8">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dev-text-primary-light dark:text-dev-text-primary-dark mb-6 sm:mb-8 text-center">
             Other Campaigns Overview
           </h3>
           
-          <div className="overflow-x-auto flex gap-4 justify-center p-6">
-            <img src="/first.png" alt="Campaign Overview 1" className="rounded-2xl shadow-xl w-full max-w-md object-contain" />
-            <img src="/second.png" alt="Campaign Overview 2" className="rounded-2xl shadow-xl w-full max-w-md object-contain" />
+          {/* Stacked/Overlapping Layout */}
+          <div className="relative max-w-6xl mx-auto px-4">
+            {/* First Image - Bottom Layer */}
+            <motion.div
+              initial={{ opacity: 0, x: -50, rotate: -3 }}
+              whileInView={{ opacity: 1, x: 0, rotate: -2 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02, rotate: 0, zIndex: 30 }}
+              className="relative z-10"
+            >
+              <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-3 sm:p-4 rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 transform hover:shadow-4xl transition-all duration-500">
+                <img 
+                  src="/first.png" 
+                  alt="Campaign Overview 1" 
+                  className="w-full h-auto rounded-2xl object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </motion.div>
+
+            {/* Second Image - Top Layer with Offset */}
+            <motion.div
+              initial={{ opacity: 0, x: 50, rotate: 3 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 2 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02, rotate: 0, zIndex: 30 }}
+              className="relative z-20 -mt-32 sm:-mt-48 md:-mt-64 ml-auto max-w-4xl"
+            >
+              <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-3 sm:p-4 rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 transform hover:shadow-4xl transition-all duration-500">
+                <img 
+                  src="/second.png" 
+                  alt="Campaign Overview 2" 
+                  className="w-full h-auto rounded-2xl object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </motion.div>
+
+            {/* Decorative Elements */}
+            <motion.div
+              className="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-full blur-3xl"
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 5, repeat: Infinity }}
+            />
           </div>
         </motion.div>
 
