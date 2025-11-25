@@ -99,19 +99,6 @@ export const CampaignsSection: React.FC = () => {
     }
   ];
 
-  const otherCampaigns = [
-    { name: 'Event: Dubai Property Show 2025', status: 'Off', results: '998 Event responses', reach: '93,285', frequency: '4.94', costPerResult: '$0.50' },
-    { name: 'Atif - Project Leads - 7th August', status: 'Active', results: '858 Meta leads', reach: '1,301,171', frequency: '2.24', costPerResult: '$15.22' },
-    { name: 'Asia', status: 'Active', results: '620 Follows/Likes', reach: '10,559', frequency: '1.48', costPerResult: '$0.39' },
-    { name: 'Atif - Generic Leads Overseas', status: 'Off', results: '479 Meta leads', reach: '126,061', frequency: '1.83', costPerResult: '$25.06' },
-    { name: 'Atif - New Project Based Leads - 31st May', status: 'Off', results: '399 Meta leads', reach: '276,257', frequency: '2.25', costPerResult: '$22.73' },
-    { name: 'Turkey Roadshow', status: 'Off', results: '260 Meta leads', reach: '122,738', frequency: '2.98', costPerResult: '$50.35' },
-    { name: '10JulyLeads', status: 'Active', results: '123 Link Clicks', reach: '11,590', frequency: '1.47', costPerResult: '—' },
-    { name: 'Atif - USA/Canada - Leads', status: 'Off', results: '83 Meta leads', reach: '33,098', frequency: '2.02', costPerResult: '$185.21' },
-    { name: 'UKTraffic', status: 'Active', results: '69 Link Clicks', reach: '4,032', frequency: '1.04', costPerResult: '$1.48' },
-    { name: 'SingaporeTraffic', status: 'Active', results: '57 Link Clicks', reach: '5,877', frequency: '1.09', costPerResult: '$1.52' }
-  ];
-
   const stats = [
     { label: 'Total Leads', value: '6,916+', icon: Users, color: 'text-blue-500' },
     { label: 'Total Reach', value: '5.9M+', icon: Eye, color: 'text-emerald-500' },
@@ -426,7 +413,7 @@ export const CampaignsSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Other Campaigns Table */}
+        {/* Other Campaigns Images */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -438,11 +425,76 @@ export const CampaignsSection: React.FC = () => {
             Other Campaigns Overview
           </h3>
           
-       <div className="overflow-x-auto flex gap-4 justify-center p-6">
-  <img src="/public/first.png" alt="Campaign Overview 1" className="rounded-2xl shadow-xl w-full max-w-md object-contain" />
-  <img src="/public/second.png" alt="Campaign Overview 2" className="rounded-2xl shadow-xl w-full max-w-md object-contain" />
-</div>
+          <div className="overflow-x-auto flex gap-4 justify-center p-6">
+            <img src="/first.png" alt="Campaign Overview 1" className="rounded-2xl shadow-xl w-full max-w-md object-contain" />
+            <img src="/second.png" alt="Campaign Overview 2" className="rounded-2xl shadow-xl w-full max-w-md object-contain" />
+          </div>
+        </motion.div>
 
+        {/* Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dev-text-primary-light dark:text-dev-text-primary-dark mb-8 sm:mb-12">
+            Core Competencies
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <motion.div
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-full border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden relative"
+                  whileHover={{ scale: 1.05, y: -3 }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={false}
+                  />
+                  <span className="relative z-10 text-sm sm:text-base font-medium text-dev-text-primary-light dark:text-dev-text-primary-dark">
+                    {skill}
+                  </span>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="mt-12 sm:mt-16"
+          >
+            <motion.div
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10 backdrop-blur-xl rounded-full border border-blue-500/20 relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
+                initial={{ x: '-100%' }}
+                animate={{ x: '200%' }}
+                transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+              />
+              
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-blue-500" />
+              <span className="text-dev-text-primary-light dark:text-dev-text-primary-dark font-bold text-sm sm:text-base md:text-lg">
+                Driving measurable results through data-driven marketing strategies
+              </span>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
